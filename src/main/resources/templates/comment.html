@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/comment.css}">
+    <title>comment-page</title>
+</head>
+<body>
+<div class="container bootstrap snippets bootdey">
+    <div class="col-md-8">
+        <div class="box box-widget">
+            <div class="box-header with-border">
+                <div class="user-block" th:text="${post}">
+                    <img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User Image">
+                    <span class="username"><a href="#">[[${post.fullName}]]</a></span>
+                </div>
+                <div class="box-tools">
+                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
+                        <i class="fa fa-circle-o"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <div class="box-body" th:text="${post}">
+                <p>[[${post1.text_body}]]</p>
+                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Edit</button>
+                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
+                <span class="pull-right text-muted">45 likes - 2 comments</span>
+            </div>
+            <div class="box-footer box-comments">
+                <th:block th:each="comment: ${comments}">
+                <div class="box-comment">
+                    <img class="img-circle img-sm" src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="User Image">
+                    <div class="comment-text">
+          <span class="username">[[${comment.user.fullName}]]</span>
+                        [[${comment.text_area}]]
+                    </div>
+                </div>
+                </th:block>
+            </div>
+            <div class="box-footer">
+                <form action="#" method="post">
+                    <img class="img-responsive img-circle img-sm" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Alt Text">
+                    <div class="img-push">
+                        <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
