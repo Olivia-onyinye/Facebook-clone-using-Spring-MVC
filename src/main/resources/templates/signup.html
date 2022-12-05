@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/sign-up.css}">
+</head>
+<body>
+<form th:action="@{/facebook/signup}" method="post" th:object="${userSignIn}" style="border:0px solid #ccc">
+    <div class="container">
+        <h1>Sign Up</h1>
+        <p>It's quick and easy.</p>
+        <hr>
+        <label id="username"><b>FullName</b></label>
+        <input type="text" placeholder="Enter Full Name" th:field="*{fullName}" name="fullName" required>
+        <label id="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" th:field="*{email}" name="email" required>
+        <label id="gender"><b>Gender</b></label>
+        <input type="text" placeholder="Enter Gender" th:field="*{gender}" name="gender" required>
+        <label id="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" th:field="*{password}" name="password" required>
+        <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+        <p>By clicking Sign Up, you agree to our <a href="#" style="color:dodgerblue">Terms, Data Policy</a> and <a href="#" style="color:dodgerblue">Cookie Policy</a>
+            You may receive SMS notifications from us and can opt out at any time.</p>
+        <div class="clearfix">
+            <button type="submit" class="signupbtn">Sign Up</button>
+        </div>
+        <p class = "para-2">Already have an account? <a href="#" th:href="@{/facebook/login}">Sign Up Here</a></p>
+    </div>
+    </div>
+</form>
+</body>
+</html>
